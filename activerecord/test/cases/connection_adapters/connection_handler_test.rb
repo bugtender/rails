@@ -32,7 +32,7 @@ module ActiveRecord
         config = { "readonly" => { "adapter" => "sqlite3" } }
         ActiveRecord::Base.configurations = config
         resolver = ConnectionAdapters::ConnectionSpecification::Resolver.new(ActiveRecord::Base.configurations)
-        spec =   resolver.spec(:readonly)
+        spec = resolver.spec(:readonly)
         @handler.establish_connection(spec.to_hash)
 
         assert_not_nil @handler.retrieve_connection_pool("readonly")
